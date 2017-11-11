@@ -1,0 +1,304 @@
+#main {
+	position: relative;
+	overflow: hidden;
+}
+
+.animate {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.home {
+	@extend .animate;
+	background: url("../images/1.jpg") no-repeat;
+	background-size: 100% 100%;
+
+	.img1 {
+		animation: fadeIn 2s ease 1s backwards,flash 0.8s ease 3 2s forwards;
+	}
+
+	.img2 {
+		animation: bounceIn 1s ease 1s both
+	}
+
+	.img3 {
+		animation: zoomIn 1s ease both
+	}
+
+	.img4 {
+		animation: bounceInDown 1s ease .5s both
+	}
+
+	.btn-box {
+		width: 100%;
+		position: absolute;
+		bottom: 16%;
+		text-align: center;
+
+		.btn {
+			width: 26%;
+			display: inline-block;
+			margin: 0 2%;
+
+			img {
+				width: 100%;
+			}
+
+		}
+
+		.btn1 {
+			-webkit-animation: bounceInLeft 1s ease 2s backwards, tada 2s ease 3s forwards;
+		}
+
+		.btn2 {
+			-webkit-animation: bounceInRight 1s ease 2s backwards, tada 2s ease 3s forwards;
+		}
+
+	}
+
+}
+
+.guide {
+	@extend .animate;
+	background: rgba(0,0,0,0.7) url("../images/guide.png") no-repeat;
+	background-size: 100% 100%;
+	-webkit-animation:zoomIn .6s ease both;
+}
+
+.game-wrap {
+	@extend .animate;
+
+	.time {
+		height: 40px;
+		color: #fff;
+		// background: url('../images/time.png') no-repeat;
+		background-size: contain;
+		position: absolute;
+		left: 6%;
+		top: 11%;
+		text-align: center;
+		padding-top: 3px;
+
+		span {
+			font-size: 18px;
+		}
+
+		font {
+			font-size: 20px;
+			font-weight: bold;
+		}
+	}
+	.score {
+		@extend .time;
+		right: 10% !important;
+		left: inherit !important;
+	}
+
+	.stage {
+		@extend .animate;
+		background: url("../images/bg.jpg") no-repeat;
+		background-size: 100% 100%;
+		.score_animate{
+			font-size:40px;
+			font-weight:bold;
+			position:absolute;
+			font-style:italic;
+			-webkit-animation:scoreFadeOutUp 0.8s ease both;
+		}
+		.red{
+			color:red
+		}
+		.green{
+			color:green
+		}
+		.good-box {
+			width: 100%;
+			position: absolute;
+			top: 28.6%;
+
+			.goods {
+				width: 12%;
+				height: auto;
+				position: absolute;
+				left: -10%;
+				top: 0;
+			}
+
+			.run {
+				-webkit-animation: goods-run 2s linear both;
+			}
+
+			.down {
+				-webkit-animation: goods-down 1s ease  both;
+			}
+
+		}
+
+		.wheel-box {
+			position: absolute;
+			top: 45%;
+			left: 11%;
+			right: 14%;
+			overflow: hidden;
+
+			.bg {
+				height: auto;
+			}
+
+			.wheel-wrap {
+				position: absolute;
+				left: 0;
+				top: 9.5%;
+				width: 100%;
+				height: 80%;
+				text-align: center;
+
+				.wheel {
+					width: 12.5%;
+					padding-top: 12.5%;
+					margin: 0 5%;
+					background: url("../images/wheel.png") no-repeat;
+					background-size: 100% 100%;
+					display: inline-block;
+				}
+
+			}
+
+			.rotate {
+				.wheel {
+					-webkit-animation: rotate 2s linear infinite both;
+					-webkit-transform-origin: 50% 50%;
+				}
+
+			}
+
+		}
+
+		.cart {
+			position: absolute;
+			width: 18%;
+			bottom: 1%;
+			left: 0;
+			z-index: 1000;
+			-webkit-animation: cart-run 3s linear infinite alternate both
+		}
+
+	}
+
+}
+
+.game-over {
+	z-index:1000;
+	@extend .animate;
+	
+	.result-score{
+		        position: absolute;
+    right: 88%;
+    top: 37%;
+    color: #F44336;
+    font-size: 50px;
+    font-weight: bold;
+    font-style: italic;
+
+	}
+	.btn-box {
+		width: 18%;
+		position: absolute;
+		bottom: 10%;
+		text-align: center;
+		left: 2%;
+
+		.btn {
+			display: block;
+			margin: 8% 0;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.btn1 {
+			-webkit-animation: fadeIn 1s ease both
+		}
+
+		.btn2 {
+			-webkit-animation: fadeIn 1s ease  0.5s both
+		}
+
+	}
+
+}
+
+.result1 {
+	background: url("../images/result1.jpg") no-repeat;
+	background-size: 100% 100%;
+}
+
+.result2 {
+	background: url("../images/result2.jpg") no-repeat;
+	background-size: 100% 100%;
+}
+
+.share {
+	z-index:10011;
+	@extend .animate;
+	-webkit-animation:fadeIn 1s ease both;
+	background:rgba(0,0,0,0.8) url("../images/share.png") no-repeat 2% 10%;
+}
+
+@-webkit-keyframes rotate {
+	100% {
+		-webkit-transform: rotate(360deg)
+	}
+
+}
+
+@-webkit-keyframes scoreFadeOutUp {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -70px, 0);
+    transform: translate3d(0, -70px, 0);
+  }
+}
+
+@-webkit-keyframes goods-run {
+	0% {
+		-webkit-transform: translate3d(0, -100px, 0)
+	}
+
+	10% {
+		-webkit-transform: translate3d(100px, 0, 0)
+	}
+
+	100% {
+		-webkit-transform: translate3d(610px, 0, 0)
+	}
+
+}
+
+@-webkit-keyframes goods-down {
+	0% {
+		-webkit-transform: translate3d(0, 0, 0) rotate(0);
+	}
+
+	100% {
+		-webkit-transform: translate3d(20px, 300px, 0) rotate(60deg);
+	}
+
+}
+
+@-webkit-keyframes cart-run {
+	0% {
+		-webkit-transform: translate3d(100px, 0, 0)
+	}
+
+	100% {
+		-webkit-transform: translate3d(400px, 0, 0)
+	}
+
+}

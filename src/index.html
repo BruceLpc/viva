@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="./static/css/animate.css" />
+    <link rel="stylesheet" href="./static/css/base.css" />
+</head>
+<body>
+    <div class="loading_bg" id="loading_bg">
+        <img class="loading_img" src="./static/images/load.gif" />
+        <div class="loading_text" id="loading_text">
+            已加载 0 %
+        </div>
+    </div>
+    <div id="main">
+        <div class="home">
+            <img src="static/images/1-1.png" alt="" class="animate img1">
+            <img src="static/images/1-2.png" alt="" class="animate img2">
+            <img src="static/images/1-3.png" alt="" class="animate img3">
+            <img src="static/images/1-4.png" alt="" class="animate img4">
+            <div class="btn-box">
+                <a id="start-btn" href="javascript:void(0)" class="btn1 btn">
+                    <img src="static/images/1-5.png" alt="">
+                </a>
+                <a id="guide-btn" href="javascript:void(0)" class="btn2 btn">
+                    <img src="static/images/1-6.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="guide hide"></div>
+        <div class="game-wrap hide">
+            <div class="stage">
+                <div class="good-box" id="goods-wrap"></div>
+                <div class="wheel-box">
+                    <img src="static/images/line.png" class="bg">
+                    <div class="wheel-wrap rotate">
+                        <div class="wheel"></div>
+                        <div class="wheel"></div>
+                        <div class="wheel"></div>
+                        <div class="wheel"></div>
+                    </div>
+                </div>
+                <div class="cart" id="cart">
+                    <img src="static/images/card.png">
+                </div>
+
+                <div class="time"><span>倒计时:</span><font id="time" ></font></div>
+                <div  class="score"><span>分数:</span><font id="score"></font></div>
+            </div>
+        </div>
+        <div class="game-over hide">
+            <div class="btn-box">
+                <a id="continu-btn" href="javascript:void(0)" class="btn1 btn">
+                    <img src="static/images/continu_btn.png" alt="">
+                </a>
+                <a id="share-btn" href="javascript:void(0)" class="btn2 btn">
+                    <img src="static/images/share_btn.png" alt="">
+                </a>
+            </div>
+            <div class="result-score" id="result-score">100</div>
+        </div>
+        <div class="share hide"></div>
+    </div>
+    <audio id="bgm" src="./static/audio/bgm.mp3" loop preload></audio>
+    <audio id="succAudio" preload="load" src="./static/audio/succ.mp3"></audio>
+    <audio id="failAudio" preload="load" src="./static/audio/fail.mp3"></audio>
+
+    <script src="./static/js/jquery-1.10.2.min.js"></script>
+    <script src="./static/js/jquery.cookie.js"></script>
+    <script>
+        (function(){
+            var audioEl=document.getElementById("bgm")
+            function playAudio() {
+                audioEl.load();
+                audioEl.play();
+            }
+            //  由于iphone手机不支持自动播放，微信提供了个接口，当wx.ready调用时执行音乐播放，就可以实现iphone手机微信端自动播放音乐，但有个问题，你必须注册wxSDK 才可以调用wx.ready方法
+            // wx.ready(function(){ 
+            //     playAudio()
+            // })
+            playAudio()
+        })()
+    </script>
+</html>
